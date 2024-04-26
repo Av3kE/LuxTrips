@@ -1,0 +1,247 @@
+*,
+ ::before,
+ ::after {
+    box-sizing: border-box;
+}
+
+$maxWidth: 1920;
+@mixin adaptive-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $addMobSize: $addSize +$addSize * 0.7;
+    @media (max-width: 767px) {
+        font-size:calc(#{$mobSize + px} + #{$addMobSize} * ((100vw - 320px) / #{$maxWidth}));
+    }
+    @media (min-width:767px) {
+        font-size: calc(#{$mobSize + px} + #{$addSize} * (100vw / #{$maxWidth}));
+    }
+}
+
+body {
+    font-size: 16px;
+    color: #000;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    &._lock {
+        overflow: hidden;
+    }
+    ._no-display {
+        display: none;
+    }
+    .header {
+        position: fixed;
+        z-index: 9;
+        top: 0;
+        left: 0;
+        width: 100%;
+        &__container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 93.6%;
+            width: 100%;
+            min-height: 64px;
+            margin: 1.5rem auto;
+            font: {
+                family: "Forum", serif;
+                weight: 400;
+                style: normal;
+            }
+            text-transform: uppercase;
+        }
+        &__logo {
+            display: flex;
+            flex: 0 1 9%;
+            order: 1;
+            z-index: 11;
+            @media all and (max-width: 1024px) {
+                order: 2;
+            }
+        }
+        &__menu {
+            padding: 1.4375rem 0;
+        }
+        .menu {
+            order: 2;
+            @media all and (max-width: 1024px) {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 100%;
+                z-index: 5;
+                height: 100%;
+                overflow: auto;
+                background-color: #E2D3CE;
+                background-image: url('img/rhomb.png');
+                background-repeat: no-repeat;
+                background-position: 50%;
+                background-size: contain;
+            }
+            &._active {
+                left: 0;
+            }
+            &__list {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                justify-content: center;
+                height: 100%;
+            }
+            ._burger {
+                flex-direction: column;
+                justify-content: center;
+                flex-wrap: nowrap;
+                .menu__item {
+                    font-size: 24px;
+                }
+            }
+            &__item {
+                &:not(:last-of-type) {
+                    margin: 0 0 4rem 0;
+                }
+                @media all and (min-width: 1024px) {
+                    &:not(:last-of-type) {
+                        margin: 0 2.5rem 0 0;
+                    }
+                }
+            }
+        }
+        .header__contact {
+            position: relative;
+            border: 1px solid white;
+            border-radius: 32px;
+            padding: 10px;
+            order: 3;
+            z-index: 11;
+            @media all and (max-width: 1024px) {
+                order: 1;
+            }
+            &::before {
+                content: url('img/Layer\ 3\ \(1\).png');
+                position: absolute;
+                top: -20px;
+                left: 45px;
+            }
+            &::after {
+                content: url('img/Layer\ 4\ \(1\).png');
+                position: absolute;
+                bottom: -60%;
+                left: 45px;
+            }
+            &::before,
+            &::after {
+                @media all and (max-width: 1024px) {
+                    display: none;
+                }
+            }
+        }
+        &__contact,
+        .menu__link {
+            color: #000;
+            text-decoration: none;
+            &:hover {
+                transition: 1s all ease-out;
+                color: #79655E;
+            }
+        }
+        .menu-toggle {
+            order: 3;
+            z-index: 10;
+            cursor: pointer;
+            .bar {
+                width: 25px;
+                height: 3px;
+                background-color: black;
+                margin: 5px 0;
+                transition: transform 0.3s ease-in-out;
+            }
+        }
+    }
+    main {
+        width: 100%;
+        overflow-x: hidden;
+        .hero {
+            text-align: center;
+            position: relative;
+            margin: -8rem 0;
+            padding-bottom: 28.125rem;
+            &__subtitle {
+                position: relative;
+                z-index: 6;
+                text-transform: uppercase;
+                font: {
+                    family: "Forum", serif;
+                    weight: 400;
+                    size: 1.5625rem;
+                }
+                line-height: 1.5394rem;
+                letter-spacing: 0.3em;
+                padding: 16rem 0 4rem;
+            }
+            &__title {
+                position: relative;
+                z-index: 6;
+                color: #fff;
+                @include adaptive-font(198,
+                72);
+                text-transform: uppercase;
+                font: {
+                    family: "Forum", serif;
+                    weight: 400;
+                }
+                letter-spacing: 0.04em;
+                &__1 {}
+                &__2 {
+                    z-index: 3;
+                }
+                &__3 {
+                    z-index: 4;
+                    font-size: 141.61px;
+                }
+            }
+            img {
+                position: absolute;
+                max-width: 100%;
+            }
+            &__img-1 {
+                // width: 1440px;
+                height: 687px;
+                top: 509.2px;
+                left: 0;
+                z-index: 2;
+            }
+            &__img-2 {
+                // width: 1520px;
+                height: 612.22px;
+                top: 589px;
+                left: 0;
+                z-index: 3;
+            }
+            &__img-3 {
+                left: 0;
+                // width: 1440px;
+                height: 960px;
+                top: 120px;
+                z-index: 1;
+            }
+            &__img-4 {
+                // width: 1186px;
+                height: 288px;
+                top: 535.2px;
+                left: 72px;
+                border: 1px 0px 0px 0px;
+                z-index: 4;
+            }
+        }
+    }
+    footer {
+        width: 100%;
+        div {
+            width: 100%;
+            height: 100%;
+            background: red;
+        }
+    }
+}

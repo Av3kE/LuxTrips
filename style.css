@@ -1,0 +1,236 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+  color: #000;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+body._lock {
+  overflow: hidden;
+}
+body ._no-display {
+  display: none;
+}
+body .header {
+  position: fixed;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+body .header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 93.6%;
+  width: 100%;
+  min-height: 64px;
+  margin: 1.5rem auto;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  font-style: normal;
+  text-transform: uppercase;
+}
+body .header__logo {
+  display: flex;
+  flex: 0 1 9%;
+  order: 1;
+  z-index: 11;
+}
+@media all and (max-width: 1024px) {
+  body .header__logo {
+    order: 2;
+  }
+}
+body .header__menu {
+  padding: 1.4375rem 0;
+}
+body .header .menu {
+  order: 2;
+}
+@media all and (max-width: 1024px) {
+  body .header .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    z-index: 5;
+    height: 100%;
+    overflow: auto;
+    background-color: #E2D3CE;
+    background-image: url("img/rhomb.png");
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+  }
+}
+body .header .menu._active {
+  left: 0;
+}
+body .header .menu__list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+}
+body .header .menu ._burger {
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+body .header .menu ._burger .menu__item {
+  font-size: 24px;
+}
+body .header .menu__item:not(:last-of-type) {
+  margin: 0 0 4rem 0;
+}
+@media all and (min-width: 1024px) {
+  body .header .menu__item:not(:last-of-type) {
+    margin: 0 2.5rem 0 0;
+  }
+}
+body .header .header__contact {
+  position: relative;
+  border: 1px solid white;
+  border-radius: 32px;
+  padding: 10px;
+  order: 3;
+  z-index: 11;
+}
+@media all and (max-width: 1024px) {
+  body .header .header__contact {
+    order: 1;
+  }
+}
+body .header .header__contact::before {
+  content: url("img/Layer 3 (1).png");
+  position: absolute;
+  top: -20px;
+  left: 45px;
+}
+body .header .header__contact::after {
+  content: url("img/Layer 4 (1).png");
+  position: absolute;
+  bottom: -60%;
+  left: 45px;
+}
+@media all and (max-width: 1024px) {
+  body .header .header__contact::before, body .header .header__contact::after {
+    display: none;
+  }
+}
+body .header__contact,
+body .header .menu__link {
+  color: #000;
+  text-decoration: none;
+}
+body .header__contact:hover,
+body .header .menu__link:hover {
+  transition: 1s all ease-out;
+  color: #79655E;
+}
+body .header .menu-toggle {
+  order: 3;
+  z-index: 10;
+  cursor: pointer;
+}
+body .header .menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin: 5px 0;
+  transition: transform 0.3s ease-in-out;
+}
+body main {
+  width: 100%;
+  overflow-x: hidden;
+}
+body main .hero {
+  text-align: center;
+  position: relative;
+  margin: -8rem 0;
+  padding-bottom: 28.125rem;
+}
+body main .hero__subtitle {
+  position: relative;
+  z-index: 6;
+  text-transform: uppercase;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  font-size: 1.5625rem;
+  line-height: 1.5394rem;
+  letter-spacing: 0.3em;
+  padding: 16rem 0 4rem;
+}
+body main .hero__title {
+  position: relative;
+  z-index: 6;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Forum", serif;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+@media (max-width: 767px) {
+  body main .hero__title {
+    font-size: calc(72px + 214.2 * (100vw - 320px) / 1920);
+  }
+}
+@media (min-width: 767px) {
+  body main .hero__title {
+    font-size: calc(72px + 126 * 100vw / 1920);
+  }
+}
+body main .hero__title__2 {
+  z-index: 3;
+}
+body main .hero__title__3 {
+  z-index: 4;
+  font-size: 141.61px;
+}
+body main .hero img {
+  position: absolute;
+  max-width: 100%;
+}
+body main .hero__img-1 {
+  height: 687px;
+  top: 509.2px;
+  left: 0;
+  z-index: 2;
+}
+body main .hero__img-2 {
+  height: 612.22px;
+  top: 589px;
+  left: 0;
+  z-index: 3;
+}
+body main .hero__img-3 {
+  left: 0;
+  height: 960px;
+  top: 120px;
+  z-index: 1;
+}
+body main .hero__img-4 {
+  height: 288px;
+  top: 535.2px;
+  left: 72px;
+  border: 1px 0px 0px 0px;
+  z-index: 4;
+}
+body footer {
+  width: 100%;
+}
+body footer div {
+  width: 100%;
+  height: 100%;
+  background: red;
+}/*# sourceMappingURL=style.css.map */
